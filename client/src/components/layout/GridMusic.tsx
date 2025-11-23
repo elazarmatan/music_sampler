@@ -1,19 +1,10 @@
-import { useEffect } from "react";
 import { useMyContext } from "../../context/MyContext.context";
+import setColorAfter from "../../utils/setColorAfter";
 import AudioSquare from "../AudioSquare";
 
 function GridMusic() {
-  const { addColumn, gridState, setGridState } = useMyContext();
-  const urls = [
-    "http://localhost:9000/piano/piano/A1vH.wav",
-    "http://localhost:9000/piano/piano/A2vL.wav",
-    "http://localhost:9000/piano/piano/A3vH.wav",
-    "http://localhost:9000/piano/piano/A4vH.wav",
-    "http://localhost:9000/piano/piano/A5vH.wav",
-    "http://localhost:9000/piano/piano/A6vH.wav",
-    "http://localhost:9000/piano/piano/A7vH.wav",
-  ];
-
+  const { addColumn, gridState, setGridState,urls } = useMyContext();
+  
   return (
     <section
       id="grid"
@@ -25,6 +16,7 @@ function GridMusic() {
             key={`${collIndex}-${rowIndex}`}
             pathAudio={urls[rowIndex]}
             active={cellState}
+            colorAfter={setColorAfter(rowIndex)}
             onToggle={() => {
               setGridState((prev) => {
                 const newGrid = prev.map((col) => [...col]);
