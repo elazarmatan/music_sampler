@@ -1,10 +1,23 @@
-import AudioSquare from "./components/AudioSquare"
+import { useState } from "react"
+import GridMusic from "./components/layout/GridMusic"
+import Logo from "./components/layout/Logo"
+import NavBar from "./components/layout/NavBar"
+import Slogen from "./components/layout/Slogen"
+import { MyContext } from "./context/MyContext.context"
 
 function App() {
+  const [addColumn,setAddcolumn] = useState(5)
   return (
-    <div className="square">
-      <AudioSquare pathAudio="http://localhost:9000/try/1763539580699-B1vH.wav"/>
+    <MyContext>
+      <div className="page">
+      <header>
+        <Logo/>
+        <Slogen/>
+      </header>
+      <GridMusic/>
+      <NavBar/>
     </div>
+    </MyContext>
   )
 }
 
