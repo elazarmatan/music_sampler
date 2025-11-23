@@ -1,15 +1,24 @@
+import { useState } from "react"
+import * as Tone from 'tone'
+
 interface props{
     pathAudio:string
+    active:boolean
+    onToggle:() => void
 }
-function AudioSquare({pathAudio}:props) {
-  const play = () => {
-        const audio = new Audio(pathAudio)
-        audio.play()
+
+function AudioSquare({pathAudio , active , onToggle}:props) {
+  const play = async() => {
+        await Tone.start()
+        const audio = new Tone.Player(pathAudio).toDestination()
+        await audio.load(pathAudio)
+         if(active){
+            audio.start()
+        }
+        onToggle()
     }
   return (
-    <div onClick={play}>
-      a
-    </div>
+    <div onClick={play} className="square" style={{background:active ? "aliceblue":"blue"}}></div>
   )
 }
 
