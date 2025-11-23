@@ -1,4 +1,5 @@
 import AddColumn from "../buttons/AddColumn";
+import Play from "../buttons/Play";
 import RemoveColumn from "../buttons/RemoveColumn";
 
 function NavBar() {
@@ -6,6 +7,7 @@ function NavBar() {
     <footer>
         <AddColumn/>
         <RemoveColumn/>
+        <Play/>
     </footer>
   )
 }
