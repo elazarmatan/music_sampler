@@ -6,13 +6,11 @@ import Slogen from "./components/layout/Slogen"
 import { MyContext } from "./context/MyContext.context"
 
 function App() {
-  const [addColumn,setAddcolumn] = useState(5)
   return (
     <MyContext>
       <div className="page">
       <header>
         <Logo/>
-        <Slogen/>
       </header>
       <GridMusic/>
       <NavBar/>
