@@ -1,0 +1,46 @@
+body{
+  background: aliceblue;
+   height: 100%;
+  margin: 0;
+}
+header{
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  height: 20vh;
+  z-index: 1000;
+  align-items: center;
+}
+img{
+  height: 16vh;
+  width: 11vw;
+}
+#slogen{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+footer{
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  height: 20vh;
+  z-index: 1000;
+}
+.page{
+   min-height: 100vh;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#grid{
+  display: grid;
+  grid-template-rows: repeat(7,1fr);
+  grid-auto-flow: column;
+  height: 57vh;
+}
+.square{
+  border: 1px solid black;
+}
