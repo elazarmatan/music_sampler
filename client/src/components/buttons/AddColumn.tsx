@@ -3,11 +3,20 @@ function AddColumn() {
     const {addColumn,setAddcolumn} = useMyContext()
 
   return (
-    <button onClick={() => {
+    <div id="AddColumn">
+      <button className="add" onClick={() => {
             if(addColumn < 50){
                 setAddcolumn(prev => prev + 1)
             }
-            }}>ADD COLUMN</button>
+            }}>+</button>
+      <p>column</p>
+      <button className="add" onClick={() => {
+        if(addColumn > 5){
+            setAddcolumn(prev => prev - 1)
+        }
+    }}>-</button>
+    </div>
+    
   )
 }
 
