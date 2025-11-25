@@ -16,6 +16,7 @@ function GridMusic() {
             key={`${collIndex}-${rowIndex}`}
             pathAudio={urls[rowIndex]}
             active={cellState}
+            mycolumn={collIndex}
             colorAfter={setColorAfter(rowIndex)}
             onToggle={() => {
               setGridState((prev) => {
