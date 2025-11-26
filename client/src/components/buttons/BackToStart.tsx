@@ -1,4 +1,3 @@
-import React from 'react'
 import { useMyContext } from '../../context/MyContext.context'
 
 function BackToStart() {
