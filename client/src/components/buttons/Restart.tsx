@@ -7,6 +7,7 @@ function Restart() {
     addColumn,
     setcontrollSpeed,
     setColumn,
+    gain,
   } = useMyContext();
   return (
     <button
@@ -19,6 +20,7 @@ function Restart() {
         );
         setcontrollSpeed(500);
         setColumn(-1);
+        gain.current.gain.value = 0.5
       }}
     >
       Restart
