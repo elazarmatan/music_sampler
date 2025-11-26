@@ -8,7 +8,7 @@ function GridMusic() {
   return (
     <section
       id="grid"
-      style={{ gridTemplateColumns: `repeat(${addColumn},1fr)` }}
+      style={{ gridTemplateColumns: `repeat(${addColumn},1fr)`,  gridTemplateRows: `repeat(${gridState[0].length},1fr)`}}
     >
       {gridState.map((col, collIndex) =>
         col.map((cellState, rowIndex) => (
