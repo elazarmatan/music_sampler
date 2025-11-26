@@ -4,10 +4,10 @@ function ControlSpeed() {
     const {controllSpeed,setcontrollSpeed}= useMyContext()
   return (
     <div id="ControlSpeed">
-        <input type="range" min={100} max={1500} step={50} value={controllSpeed} onChange={(e) => {
+        <input type="range" min={100} max={1000} step={50} value={controllSpeed} onChange={(e) => {
             setcontrollSpeed(Number(e.target.value))
             }}/>
-        <p>{controllSpeed / 1000} :Speed</p>
+        <p>Speed:{controllSpeed / 1000}</p>
     </div>
   )
 }
