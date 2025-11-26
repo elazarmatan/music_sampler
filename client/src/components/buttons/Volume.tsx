@@ -3,11 +3,11 @@ import { useMyContext } from "../../context/MyContext.context";
 
 function Volume() {
   const { gain } = useMyContext();
-const [showValue,setshowValue] = useState(0.5)
+  const [showValue, setshowValue] = useState(0.5);
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     gain.current.gain.value = value;
-    setshowValue(value)
+    setshowValue(value);
   };
   return (
     <div>
