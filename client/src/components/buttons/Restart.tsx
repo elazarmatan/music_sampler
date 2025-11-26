@@ -17,7 +17,7 @@ function Restart() {
             Array.from({ length: 7 }, () => true)
           )
         );
-        setcontrollSpeed(1000);
+        setcontrollSpeed(500);
         setColumn(-1);
       }}
     >
