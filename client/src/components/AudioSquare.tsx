@@ -21,7 +21,7 @@ function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn}:props
         onToggle()
     }
   return (
-    <div onClick={play} className={`square ${column !== null && column === mycolumn ? "playColumn":""}`} style={{background:active ? "#aad2e5ff":colorAfter}}></div>
+    <div onClick={play} className={`square ${column === mycolumn ? "playColumn":""}`} style={{background:active ? "#aad2e5ff":colorAfter}}></div>
   )
 }
 export default AudioSquare
