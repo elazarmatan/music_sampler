@@ -1,13 +1,21 @@
 import AddColumn from "../buttons/AddColumn";
+import Stop from "../buttons/Stop";
+import Channels from "../buttons/Channels";
+import ControlSpeed from "../buttons/ControlSpeed";
 import Play from "../buttons/Play";
-import RemoveColumn from "../buttons/RemoveColumn";
+import Restart from "../buttons/Restart";
+import Volume from "../buttons/Volume";
 
 function NavBar() {
   return (
-    <footer>
-        <AddColumn/>
-        <RemoveColumn/>
+    <footer id="navbar">
         <Play/>
+        <Channels/>
+        <AddColumn/>
+        <Restart/>
+        <Stop/>
+        <ControlSpeed/>
+        <Volume/>
     </footer>
   )
 }
