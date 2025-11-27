@@ -4,11 +4,15 @@ import cors from 'cors'
 import router from './routes/get.js';
 
 
+
 const app = express()
 
 app.use(cors())
 
-app.use(express.static("public"))
+app.use("/", (req, res, next) => {
+  console.log(`method: ${req.method} url: ${req.url}`);
+  next();
+});
 
 app.use('/',router)
 
