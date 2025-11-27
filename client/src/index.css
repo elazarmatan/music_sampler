@@ -51,7 +51,6 @@ footer{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-around; */
   width: 20vw;
 }
 #AddColumn{
@@ -77,4 +76,12 @@ footer{
 }
 .playColumn{
   opacity: 0.5;
+}
+.loading{
+  margin-top: 26vh;
+  margin-left: 38vw;
+  color: green;
+}
+.stop{
+  width: 4vw;
 }
