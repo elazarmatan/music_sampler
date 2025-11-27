@@ -1,5 +1,5 @@
 import AddColumn from "../buttons/AddColumn";
-import BackToStart from "../buttons/BackToStart";
+import Stop from "../buttons/Stop";
 import Channels from "../buttons/Channels";
 import ControlSpeed from "../buttons/ControlSpeed";
 import Play from "../buttons/Play";
@@ -13,7 +13,7 @@ function NavBar() {
         <Channels/>
         <AddColumn/>
         <Restart/>
-        <BackToStart/>
+        <Stop/>
         <ControlSpeed/>
         <Volume/>
     </footer>
