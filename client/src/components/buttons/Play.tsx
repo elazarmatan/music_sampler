@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useMyContext } from "../../context/MyContext.context";
 import playSpecificColumn from "../../utils/playColumn";
 
 function Play() {
-  const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain} = useMyContext();
-  const [active, setActive] = useState(false);
+  const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive} = useMyContext();
+
+  const play = () => {setActive(true); isPlaying.current = true; setColumn(prev => prev + 1)}
+  const pause = () => {isPlaying.current = false;setActive(false);setColumn(-1)}
 
   useEffect(() => {
       if (!isPlaying.current) return
-      playSpecificColumn({gridState,column,urls,setColumn,controllSpeed,gain})
-  },[column])
+      playSpecificColumn({gridState,column,urls,setColumn,controllSpeed,gain,isPlaying})
+  },[column,active])
 
   return (
     <div>
       {!active ? (
-        <button className="Play" onClick={() => {
-          setActive(true)
-          isPlaying.current = true;
-          setColumn(prev => prev + 1)
-        }}>▶</button>
+        <button className="Play" onClick={play}>▶</button>
       ) : (
-        <button className="Play"
-          onClick={() => {
-            isPlaying.current = false;
-            setActive(false)
-          }}
-        >
-          ⏹
-        </button>
+        <button className="Play"onClick={pause}>⏹</button>
       )}
     </div>
   );
