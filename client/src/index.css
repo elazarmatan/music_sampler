@@ -85,3 +85,8 @@ footer{
 .stop{
   width: 4vw;
 }
+.error{
+  margin-top: 26vh;
+  margin-left: 38vw;
+  color: red;
+}
