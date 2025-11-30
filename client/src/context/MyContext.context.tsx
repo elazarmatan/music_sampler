@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import * as Tone from "tone";
+import getChannel from "../utils/getChannel";
 
 type contextType = {
   addColumn: number;
@@ -24,6 +25,10 @@ type contextType = {
   setError:React.Dispatch<React.SetStateAction<boolean>>
   active:boolean
   setActive:React.Dispatch<React.SetStateAction<boolean>>
+  namechannel:string
+  setnamechannel:React.Dispatch<React.SetStateAction<string>>
+  channel:string
+  setchannel:React.Dispatch<React.SetStateAction<string>>
 };
 
 interface providerProps {
@@ -41,29 +46,11 @@ export function MyContext(props: providerProps) {
   const [urls, setUrls] = useState([""]);
   const [error,setError] = useState(false)
   const [active, setActive] = useState(false);
-
+  const [namechannel,setnamechannel] = useState('piano')
+  const [channel,setchannel] = useState('🎹')
   useEffect(() => {
-    const channel = async () => {
-      try {
-        const piano = await fetch("http://localhost:3005/channel/piano");
-        if(piano.ok){
-          const finishdata = await piano.json();
-          setUrls(finishdata.piano);
-          setGridState(
-          Array.from({length:addColumn},() =>
-          Array.from({length:finishdata.piano.length},() => true)
-          )
-        )
-        }
-        else{
-          setError(true)
-        }
-      } catch (error) {
-        setError(true)
-      }
-    };
-    channel();
-  }, []);
+    getChannel({setError,setGridState,setUrls,addColumn,namechannel})
+  }, [namechannel]);
 
   const [gridState, setGridState] = useState<boolean[][]>(
     Array.from({ length: addColumn }, () =>
@@ -100,7 +87,11 @@ export function MyContext(props: providerProps) {
         error,
         setError,
         active,
-        setActive
+        setActive,
+        namechannel,
+        setnamechannel,
+        channel,
+        setchannel
       }}
     >
       {props.children}
