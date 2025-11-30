@@ -5,7 +5,7 @@ import AudioSquare from "../AudioSquare";
 function GridMusic() {
   const { addColumn, gridState, setGridState,urls,error} = useMyContext();
   if(error){
-    return <h1>ERROR</h1>
+    return <h1 className="error">ERROR</h1>
   }
   return (
     <section
