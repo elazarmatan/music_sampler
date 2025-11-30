@@ -1,5 +1,5 @@
 import * as Tone from 'tone'
-import { useMyContext } from '../context/MyContext.context'
+import { useMyContext } from '../context/MyContext.context.tsx'
 
 interface props{
     pathAudio:string

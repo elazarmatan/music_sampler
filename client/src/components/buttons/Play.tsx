@@ -5,7 +5,11 @@ import playSpecificColumn from "../../utils/playColumn";
 function Play() {
   const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive} = useMyContext();
 
-  const play = () => {setActive(true); isPlaying.current = true; setColumn(prev => prev + 1)}
+  const play = () => {setActive(true); isPlaying.current = true;
+    if(column < gridState.length - 1){
+      setColumn(prev => prev + 1)
+    } 
+  }
   const pause = () => {isPlaying.current = false;setActive(false);setColumn(-1)}
 
   useEffect(() => {
