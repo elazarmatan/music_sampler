@@ -22,6 +22,9 @@ export default function setColorAfter(row:number){
         case 6:
     color = 'crimson'
         break 
+    case 7:
+    color = 'darkgreen'
+      break
     }
     return color
   }
