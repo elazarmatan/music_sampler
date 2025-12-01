@@ -21,7 +21,6 @@ export async function listFiles(folderName){
     return response.Contents
 }
 
-
 export async function getSignedUrlsFromFolder(prefix){
     const files = await listFiles(prefix)
 
@@ -36,4 +35,3 @@ export async function getSignedUrlsFromFolder(prefix){
     )
     return urls
 }
-
