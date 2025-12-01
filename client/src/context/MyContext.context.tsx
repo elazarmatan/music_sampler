@@ -29,12 +29,13 @@ type contextType = {
   setnamechannel:React.Dispatch<React.SetStateAction<string>>
   channel:string
   setchannel:React.Dispatch<React.SetStateAction<string>>
+  showVolume:number
+  setshowVolume:React.Dispatch<React.SetStateAction<number>>;
 };
 
 interface providerProps {
   children: React.ReactNode;
 }
-
 export const context = createContext<contextType | null>(null);
 
 export function MyContext(props: providerProps) {
@@ -48,6 +49,7 @@ export function MyContext(props: providerProps) {
   const [active, setActive] = useState(false);
   const [namechannel,setnamechannel] = useState('piano')
   const [channel,setchannel] = useState('🎹')
+  const [showVolume, setshowVolume] = useState(0.5);
   useEffect(() => {
     getChannel({setError,setGridState,setUrls,addColumn,namechannel})
   }, [namechannel]);
@@ -61,7 +63,7 @@ export function MyContext(props: providerProps) {
   useEffect(() => {
     setGridState((prev) => {
       if (prev.length < addColumn) {
-        return [...prev, Array.from({ length: 7 }, () => true)];
+        return [...prev, Array.from({ length: urls.length }, () => true)];
       }
       if (prev.length > addColumn) {
         return prev.slice(0, addColumn);
@@ -91,7 +93,9 @@ export function MyContext(props: providerProps) {
         namechannel,
         setnamechannel,
         channel,
-        setchannel
+        setchannel,
+        showVolume,
+        setshowVolume
       }}
     >
       {props.children}
