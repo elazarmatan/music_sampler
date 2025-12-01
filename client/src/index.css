@@ -41,11 +41,14 @@ footer{
 }
 .square{
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #navbar{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 #ControlSpeed{
   display: flex;
@@ -89,4 +92,16 @@ footer{
   margin-top: 26vh;
   margin-left: 38vw;
   color: red;
+}
+.channel{
+  width: 4vw;
+  height: 8vh;
+  border-radius: 50%;
+  font-size: x-large;
+  background-color: #2ca7e4;
+}
+#minmax{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
