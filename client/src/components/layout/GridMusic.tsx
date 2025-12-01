@@ -15,6 +15,7 @@ function GridMusic() {
       {urls.length > 1 ? gridState.map((col, collIndex) =>
         col.map((cellState, rowIndex) => (
           <AudioSquare
+            row={rowIndex}
             key={`${collIndex}-${rowIndex}`}
             pathAudio={urls[rowIndex]}
             active={cellState}
