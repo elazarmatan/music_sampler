@@ -7,10 +7,11 @@ interface props{
     onToggle:() => void
     colorAfter:string
     mycolumn:number
+    row:number
 }
 
-function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn}:props) {
-  const {column,gain} = useMyContext()
+function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn,row}:props) {
+  const {column,gain,urls} = useMyContext()
   const play = async() => {
         await Tone.start()
         const audio = new Tone.Player(pathAudio).connect(gain.current)
@@ -21,7 +22,7 @@ function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn}:props
         onToggle()
     }
   return (
-    <div onClick={play} className={`square ${column === mycolumn ? "playColumn":""}`} style={{background:active ? "#aad2e5ff":colorAfter}}></div>
+    <div onClick={play} className={`square ${column === mycolumn ? "playColumn":""}`} style={{background:row === urls.length - 1 ? active ? "#e0e8ecff":colorAfter:active ? "#aad2e5ff":colorAfter}}>{row === urls.length - 1 && "🥁"}</div>
   )
 }
 export default AudioSquare
