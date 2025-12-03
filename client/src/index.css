@@ -13,6 +13,7 @@ header{
   height: 20vh;
   z-index: 1000;
   align-items: center;
+  width: 100%;
 }
 img{
   height: 16vh;
@@ -33,22 +34,28 @@ footer{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 #grid{
   display: grid;
   grid-auto-flow: column;
   height: 57vh;
+  width: 98%;
+  gap: 0.5% 0.2%;
 }
-.square{
+.square{ 
   border: 1px solid black;
   display: flex;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 #navbar{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
 #ControlSpeed{
   display: flex;
@@ -70,12 +77,14 @@ footer{
   background-size: 34%;
   color: white;
   font-size: xx-large;
+  cursor: pointer;
 }
 .add{
   width: 3.5vh;
   height: 2vw;
   background-color: #16a8f0;
   color: white;
+  cursor: pointer;
 }
 .playColumn{
   opacity: 0.5;
@@ -85,8 +94,17 @@ footer{
   margin-left: 38vw;
   color: green;
 }
-.stop{
+.divstop{
   width: 4vw;
+}
+.stop{
+  border-radius: 50%;
+  height: 10vh;
+  width: 5vw;
+  background-color: #16a8f0;
+  color: white;
+  font-size: x-large;
+  cursor: pointer;
 }
 .error{
   margin-top: 26vh;
@@ -99,9 +117,18 @@ footer{
   border-radius: 50%;
   font-size: x-large;
   background-color: #2ca7e4;
+  cursor: pointer;
 }
 #minmax{
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.restart{
+  border-radius: 50%;
+  height: 8vh;
+  width: 4vw;
+  font-size: x-large;
+  cursor: pointer;
+  background-color: #2ca7e4;
 }
