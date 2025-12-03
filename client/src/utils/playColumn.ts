@@ -21,13 +21,11 @@ export default async function playSpecificColumn({
   isPlaying
 }: params) {
   if(!gridState[column].length) return
-  // console.log("length",gridState[column].length)
   for (let row = 0; row < gridState[column].length; row ++) {
     if(!isPlaying.current) break
     if (!gridState[column][row]) {
       const audio = new Tone.Player(urls[row]).connect(gain.current)
       await audio.load(urls[row]);
-      console.log(column,controllSpeed / 1000);
       audio.start();
     }
   }
