@@ -3,12 +3,12 @@ import { useMyContext } from '../../context/MyContext.context'
 function Stop() {
   const {isPlaying,setActive} = useMyContext()
   return (
-    <div className='stop'>
+    <div className='divstop'>
       {isPlaying.current ? 
-      <button  onClick={() => {
+      <button className='stop'  onClick={() => {
         isPlaying.current = false;
         setActive(false)
-    }}>stop</button>
+    }}>⏸</button>
     :
     <div>
     </div>
