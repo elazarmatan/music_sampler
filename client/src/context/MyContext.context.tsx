@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import * as Tone from "tone";
-import getChannel from "../utils/getChannel";
+import getChannel from "../utils/getChannelFromServer";
 
 type contextType = {
   addColumn: number;
@@ -49,9 +49,9 @@ export function MyContext(props: providerProps) {
   const [active, setActive] = useState(false);
   const [namechannel,setnamechannel] = useState('piano')
   const [channel,setchannel] = useState('🎹')
-  const [showVolume, setshowVolume] = useState(0.5);
+  const [showVolume, setshowVolume] = useState(1);
   useEffect(() => {
-    getChannel({setError,setGridState,setUrls,addColumn,namechannel})
+      getChannel({setError,setGridState,setUrls,addColumn,namechannel})
   }, [namechannel]);
 
   const [gridState, setGridState] = useState<boolean[][]>(
