@@ -14,10 +14,10 @@ function Volume() {
         min="0"
         max="1"
         step="0.01"
-        defaultValue="0.5"
         onChange={handleVolume}
+        value={showVolume}
       />
-      <p>volume: {showVolume * 100}</p>
+      <p>volume: {(showVolume * 100).toFixed(0)}</p>
     </div>
   );
 }
