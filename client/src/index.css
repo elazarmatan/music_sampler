@@ -51,6 +51,9 @@ footer{
   justify-content: center;
   cursor: pointer;
 }
+.square:hover{
+ opacity: 0.5; 
+}
 #navbar{
   display: flex;
   align-items: center;
@@ -79,12 +82,18 @@ footer{
   font-size: xx-large;
   cursor: pointer;
 }
+.Play:hover{
+    transform: scale(1.1);
+}
 .add{
   width: 3.5vh;
   height: 2vw;
   background-color: #16a8f0;
   color: white;
   cursor: pointer;
+}
+.add:hover{
+    transform: scale(1.1);
 }
 .playColumn{
   opacity: 0.5;
@@ -106,6 +115,9 @@ footer{
   font-size: x-large;
   cursor: pointer;
 }
+.stop:hover{
+    transform: scale(1.1);
+}
 .error{
   margin-top: 26vh;
   margin-left: 38vw;
@@ -119,6 +131,9 @@ footer{
   background-color: #2ca7e4;
   cursor: pointer;
 }
+.channel:hover{
+    transform: scale(1.1);
+}
 #minmax{
   display: flex;
   align-items: center;
@@ -131,4 +146,7 @@ footer{
   font-size: x-large;
   cursor: pointer;
   background-color: #2ca7e4;
+}
+.restart:hover{
+    transform: scale(1.1);
 }
