@@ -10,7 +10,10 @@ const app = express()
 app.use(cors())
 
 app.use("/", (req, res, next) => {
+  console.log('----------------------------------------');
   console.log(`method: ${req.method} url: ${req.url}`);
+  console.log(new Date().toLocaleString());
+  console.log('----------------------------------------');
   next();
 });
 
