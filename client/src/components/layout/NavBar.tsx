@@ -5,6 +5,7 @@ import ControlSpeed from "../buttons/ControlSpeed";
 import Play from "../buttons/Play";
 import Restart from "../buttons/Restart";
 import Volume from "../buttons/Volume";
+import SaveState from "../buttons/saveState";
 
 function NavBar() {
   return (
@@ -16,6 +17,7 @@ function NavBar() {
         <Stop/>
         <ControlSpeed/>
         <Volume/>
+        <SaveState/>
     </footer>
   )
 }
