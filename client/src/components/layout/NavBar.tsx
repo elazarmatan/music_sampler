@@ -5,7 +5,8 @@ import ControlSpeed from "../buttons/ControlSpeed";
 import Play from "../buttons/Play";
 import Restart from "../buttons/Restart";
 import Volume from "../buttons/Volume";
-import SaveState from "../buttons/saveState";
+import SaveState from "../buttons/SaveState";
+import '../../style/navbar.css'
 
 function NavBar() {
   return (
@@ -21,5 +22,4 @@ function NavBar() {
     </footer>
   )
 }
-
 export default NavBar
