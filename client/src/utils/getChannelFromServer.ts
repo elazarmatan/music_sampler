@@ -10,15 +10,15 @@ interface params{
 export default async function getChannel({setError,setGridState,setUrls,addColumn,namechannel}:params){
   const time = getChannellocal(namechannel+"time")
   const now = Date.now()
-  const sixHours = 6 * 60 * 60 * 1000;
-  if(now - time >= sixHours){
+  const oneHour = 3600 * 1000;
+  if(now - time >= oneHour){
     localStorage.removeItem(namechannel)
     localStorage.removeItem(namechannel+"time")
   }
   const local = getChannellocal(namechannel)
     if(!local){
     try {
-        const music = await fetch(`http://localhost:3005/channel/${namechannel}`);
+        const music = await fetch(`http://localhost:3005/music/channel/${namechannel}`);
         if(music.ok){
           const finishdata = await music.json();
           localStorage.setItem(namechannel,JSON.stringify(finishdata.music))
@@ -27,7 +27,7 @@ export default async function getChannel({setError,setGridState,setUrls,addColum
           setGridState(
           Array.from({length:addColumn},() =>
           Array.from({length:finishdata.music.length},() => true)
-            )
+          )
           )
         }
         else{
@@ -39,10 +39,6 @@ export default async function getChannel({setError,setGridState,setUrls,addColum
     }
     else{
       setUrls(local)
-      setGridState(
-          Array.from({length:addColumn},() =>
-          Array.from({length:local.length},() => true)
-            )
-          )
+      setGridState(Array.from({length:addColumn},() =>Array.from({length:local.length},() => true)))
     }
 }
