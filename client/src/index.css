@@ -1,152 +1,23 @@
 body{
-  background: aliceblue;
+  background: linear-gradient(rgb(240,248,255),#F5F8FA 0%, #EBF4FA 80%);
   height: 100%;
   margin: 0;
 }
-header{
-  display: flex;
-  justify-content: space-around;
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  height: 20vh;
-  z-index: 1000;
-  align-items: center;
-  width: 100%;
-}
-img{
-  height: 16vh;
-  width: 13vw;
-  border-radius: 50%;
-}
-
-footer{
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  height: 20vh;
-  z-index: 1000;
-}
 .page{
-   min-height: 100vh;  
+  min-height: 100vh;  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-#grid{
-  display: grid;
-  grid-auto-flow: column;
-  height: 57vh;
-  width: 98%;
-  gap: 0.5% 0.2%;
-}
-.square{ 
-  border: 1px solid black;
-  display: flex;
-  border-radius: 4px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.square:hover{
- opacity: 0.5; 
-}
-#navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   width: 100%;
-}
-#ControlSpeed{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20vw;
-}
-#AddColumn{
-  display: flex;
-  justify-content: space-around;
-  width: 17vw;
-  align-items: center;
-}
-.Play{
-  border-radius: 50%;
-  height: 10vh;
-  width: 5vw;
-  background-color: #16a8f0;
-  background-size: 34%;
-  color: white;
-  font-size: xx-large;
-  cursor: pointer;
-}
-.Play:hover{
-    transform: scale(1.1);
-}
-.add{
-  width: 3.5vh;
-  height: 2vw;
-  background-color: #16a8f0;
-  color: white;
-  cursor: pointer;
-}
-.add:hover{
-    transform: scale(1.1);
-}
-.playColumn{
-  opacity: 0.5;
 }
 .loading{
   margin-top: 26vh;
   margin-left: 38vw;
   color: green;
 }
-.divstop{
-  width: 4vw;
-}
-.stop{
-  border-radius: 50%;
-  height: 10vh;
-  width: 5vw;
-  background-color: #16a8f0;
-  color: white;
-  font-size: x-large;
-  cursor: pointer;
-}
-.stop:hover{
-    transform: scale(1.1);
-}
 .error{
   margin-top: 26vh;
   margin-left: 38vw;
   color: red;
-}
-.channel{
-  width: 4vw;
-  height: 8vh;
-  border-radius: 50%;
-  font-size: x-large;
-  background-color: #2ca7e4;
-  cursor: pointer;
-}
-.channel:hover{
-    transform: scale(1.1);
-}
-#minmax{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.restart{
-  border-radius: 50%;
-  height: 8vh;
-  width: 4vw;
-  font-size: x-large;
-  cursor: pointer;
-  background-color: #2ca7e4;
-}
-.restart:hover{
-    transform: scale(1.1);
 }

@@ -1,0 +1,105 @@
+#navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  height: 20vh;
+  z-index: 1000;
+}
+#ControlSpeed{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+}
+#AddColumn{
+  display: flex;
+  justify-content: space-around;
+  width: 17vw;
+  align-items: center;
+}
+.Play{
+  border-radius: 50%;
+  height: 10vh;
+  width: 5vw;
+  background-size: 34%;
+  color: white;
+  font-size: xx-large;
+  cursor: pointer;
+}
+.Play:hover{
+    transform: scale(1.1);
+}
+.add{
+  width: 3.5vh;
+  height: 2vw;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.add:hover{
+    transform: scale(1.1);
+}
+.playColumn{
+  opacity: 0.5;
+}
+
+.divstop{
+  width: 4vw;
+}
+.stop{
+  border-radius: 50%;
+  height: 10vh;
+  width: 5vw;
+  color: white;
+  font-size: x-large;
+  cursor: pointer;
+}
+.stop:hover{
+    transform: scale(1.1);
+}
+.channel{
+  width: 4vw;
+  height: 8vh;
+  border-radius: 50%;
+  font-size: x-large;
+  cursor: pointer;
+}
+.channel:hover{
+    transform: scale(1.1);
+}
+#minmax{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.restart{
+  border-radius: 50%;
+  height: 8vh;
+  width: 4vw;
+  cursor: pointer;
+}
+.restart:hover{
+    transform: scale(1.1);
+}
+.button{
+  background-color: #007AFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.inputRange{
+    -webkit-appearance: none;
+    color: #007AFF;
+    background: transparent;
+    border: 1px solid #007AFF;
+    border-radius: 10px;
+}
+.divsave{
+    
+}
