@@ -1,11 +1,11 @@
 import express from 'express'
 import { getSignedUrlsFromFolder } from '../db/connectToS3.js'
 
-const router = express.Router()
+const getRouter = express.Router()
 
 
 
-router.get('/channel/:channame',async(req,res) => {
+getRouter.get('/channel/:channame',async(req,res) => {
   try {
     const urls = await getSignedUrlsFromFolder(req.params.channame)
     await new Promise(resolve => (setTimeout(resolve,2000)))
@@ -15,4 +15,4 @@ router.get('/channel/:channame',async(req,res) => {
   }
 })
 
-export default router
+export default getRouter
