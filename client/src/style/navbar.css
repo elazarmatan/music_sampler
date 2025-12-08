@@ -100,6 +100,15 @@
     border: 1px solid #007AFF;
     border-radius: 10px;
 }
-.divsave{
-    
+#divsave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 15vh;
+}
+.save{
+    height: 10vh;
+    width: 5vw;
+    border-radius: 50%;
 }
