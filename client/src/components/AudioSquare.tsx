@@ -22,7 +22,7 @@ function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn,row}:p
         onToggle()
     }
   return (
-    <div onClick={play} className={`square ${column === mycolumn ? "playColumn":""}`} style={{background:row === urls.length - 1 ? active ? "#e0e8ecff":colorAfter:active ? "#aad2e5ff":colorAfter}}>{row === urls.length - 1 && "🥁"}</div>
+    <div onClick={play} className={`square ${column === mycolumn ? "playColumn":""}`} style={{background:row === urls.length - 1 ? active ? "linear-gradient(145deg, #d5e9fcff 0%, #4c7195ff 80%)":colorAfter:active ? "linear-gradient(145deg, #66B2FF 0%, #24629fff 80%)":colorAfter}}>{row === urls.length - 1 && "🥁"}</div>
   )
 }
 export default AudioSquare
