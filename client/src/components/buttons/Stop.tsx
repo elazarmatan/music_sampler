@@ -5,7 +5,7 @@ function Stop() {
   return (
     <div className='divstop'>
       {isPlaying.current ? 
-      <button className='stop'  onClick={() => {
+      <button className='stop button'  onClick={() => {
         isPlaying.current = false;
         setActive(false)
     }}>⏸</button>

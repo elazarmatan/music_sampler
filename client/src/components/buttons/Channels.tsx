@@ -4,7 +4,7 @@ import channels from "../../utils/handles/channels"
 function Channels() {
   const {setnamechannel,namechannel,channel,setchannel,setUrls} = useMyContext()
   return (
-    <button className="channel" onClick={() => {
+    <button className="channel button" onClick={() => {
       channels({namechannel,setchannel,setnamechannel,setUrls})
     }}>{channel}</button>
   )

@@ -16,6 +16,7 @@ function Volume() {
         step="0.01"
         onChange={handleVolume}
         value={showVolume}
+        className="inputRange"
       />
       <p>volume: {(showVolume * 100).toFixed(0)}</p>
     </div>

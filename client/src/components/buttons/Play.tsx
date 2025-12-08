@@ -21,9 +21,9 @@ function Play() {
   return (
     <div>
       {!active ? (
-        <button className="Play" onClick={play}>▶</button>
+        <button className="Play button" onClick={play}>▶</button>
       ) : (
-        <button className="Play"onClick={pause}>⏹</button>
+        <button className="Play button"onClick={pause}>⏹</button>
       )}
     </div>
   );
