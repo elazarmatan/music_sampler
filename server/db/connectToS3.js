@@ -1,4 +1,4 @@
-import { S3Client,ListObjectsV2Command, GetObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client,ListObjectsV2Command, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 
@@ -34,4 +34,13 @@ export async function getSignedUrlsFromFolder(prefix){
         })
     )
     return urls
+}
+
+export async function savestate(matrix,Key){
+    await s3.send(new PutObjectCommand({
+        Bucket:"music",
+        Key:`createMusic/${Key}`,
+        Body:JSON.stringify(matrix),
+        ContentType:'application/json'
+    }))
 }
