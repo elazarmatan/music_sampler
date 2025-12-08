@@ -39,7 +39,7 @@ interface providerProps {
 export const context = createContext<contextType | null>(null);
 
 export function MyContext(props: providerProps) {
-  const [addColumn, setAddcolumn] = useState<number>(5);
+  const [addColumn, setAddcolumn] = useState<number>(10);
   const isPlaying = useRef<boolean>(false);
   const [controllSpeed, setcontrollSpeed] = useState(500);
   const [column, setColumn] = useState(-1);
