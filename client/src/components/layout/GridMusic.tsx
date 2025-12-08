@@ -1,6 +1,7 @@
 import { useMyContext } from "../../context/MyContext.context";
 import setColorAfter from "../../utils/setColorAfter";
 import AudioSquare from "../AudioSquare";
+import '../../style/gridmusic.css'
 
 function GridMusic() {
   const { addColumn, gridState, setGridState,urls,error} = useMyContext();
