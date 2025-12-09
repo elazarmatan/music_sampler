@@ -1,5 +1,5 @@
 import express from 'express'
-import { getSignedUrlsFromFolder } from '../db/connectToS3.js'
+import { downloadFiles, getSignedUrlsFromFolder, listFiles } from '../db/connectToS3.js'
 
 const getRouter = express.Router()
 
@@ -13,6 +13,11 @@ getRouter.get('/channel/:channame',async(req,res) => {
   } catch (error) {
     res.status(500).json({"msg":error})
   }
+})
+
+getRouter.get('/musicsaves',async(req,res) => {
+  const allMusic = await downloadFiles('createMusic')
+  res.json(allMusic)
 })
 
 export default getRouter
