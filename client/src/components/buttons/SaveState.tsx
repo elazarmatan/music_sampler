@@ -3,12 +3,12 @@ import { useMyContext } from "../../context/MyContext.context"
 import saveState from "../../utils/saveState"
 
 function SaveState() {
-    const {gridState} = useMyContext()
+    const {gridState,namechannel} = useMyContext()
     const [wantSave,setWAntSAve] = useState(false)
     const nameFile = useRef<HTMLInputElement>(null)
     const [accesSave,setAccesSave] = useState<'pending' | 'succes' | 'failed' | 'not'>('not')
     useEffect(() => {
-    if(accesSave === "succes"){
+    if(accesSave === "succes" || accesSave === 'failed'){
         const wait = setTimeout(() => {
             setAccesSave('not')
             setWAntSAve(false)
@@ -17,21 +17,27 @@ function SaveState() {
     }
   },[accesSave])
     if(accesSave === "succes"){
-        return <p>succes</p>
+        return <p id="success"  className="divsave">succes!</p>
     }
     else if(accesSave === 'pending'){
-        return <p>loading</p>
+        return <p id="saveLoading"  className="divsave">loading</p>
+    }
+    else if(accesSave === 'failed'){
+        return <p  className="divsave" id="failedsave">failed to save</p>
     }
   return (
-    <div id="divsave">
+    <div className="divsave">
     {wantSave ? 
-        <div>
-            <input type="text" placeholder="name to file" ref={nameFile}/>
-            <button onClick={async() => {
+        <div className="wantsave">
+            <input type="text" placeholder="name to file" ref={nameFile} className="inputwantsave" required/>
+            <button className="button" onClick={async() => {
                 if(nameFile.current?.value){
-                    await saveState(nameFile.current.value,gridState,setAccesSave)
+                    await saveState(nameFile.current.value,gridState,setAccesSave,namechannel)
                 }
             }}>submit</button>
+            <button className="button" onClick={() => {
+                setWAntSAve(false)
+            }}>cancel</button>
         </div>:
         <button className="button save"
         onClick={() => {
