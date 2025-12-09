@@ -6,7 +6,7 @@ function Play() {
   const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive,addColumn} = useMyContext();
 
   const play = () => {setActive(true); isPlaying.current = true;
-    if(column > addColumn) setColumn(addColumn - 1)
+    if(column > addColumn - 1) setColumn(addColumn - 1)
     if(column < gridState.length - 1){
       setColumn(prev => prev + 1)
     } 
