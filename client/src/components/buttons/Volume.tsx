@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useMyContext } from "../../context/MyContext.context";
 
 function Volume() {
-  const { gain } = useMyContext();
-  const [showValue, setshowValue] = useState(0.5);
+  const { gain ,showVolume,setshowVolume } = useMyContext();
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-    gain.current.gain.value = value;
-    setshowValue(value);
+    gain.current.gain.value = Number(e.target.value);
+    setshowVolume(Number(e.target.value));
   };
   return (
     <div>
@@ -16,10 +14,11 @@ function Volume() {
         min="0"
         max="1"
         step="0.01"
-        defaultValue="0.5"
         onChange={handleVolume}
+        value={showVolume}
+        className="inputRange"
       />
-      <p>volume: {showValue * 100}</p>
+      <p>volume: {(showVolume * 100).toFixed(0)}</p>
     </div>
   );
 }

@@ -6,7 +6,8 @@ import React, {
   useState,
 } from "react";
 import * as Tone from "tone";
-import getChannel from "../utils/getChannel";
+import getChannel from "../utils/getChannelFromServer";
+import { logoChannel } from "../utils/handles/channels";
 
 type contextType = {
   addColumn: number;
@@ -29,16 +30,17 @@ type contextType = {
   setnamechannel:React.Dispatch<React.SetStateAction<string>>
   channel:string
   setchannel:React.Dispatch<React.SetStateAction<string>>
+  showVolume:number
+  setshowVolume:React.Dispatch<React.SetStateAction<number>>;
 };
 
 interface providerProps {
   children: React.ReactNode;
 }
-
 export const context = createContext<contextType | null>(null);
 
 export function MyContext(props: providerProps) {
-  const [addColumn, setAddcolumn] = useState<number>(5);
+  const [addColumn, setAddcolumn] = useState<number>(10);
   const isPlaying = useRef<boolean>(false);
   const [controllSpeed, setcontrollSpeed] = useState(500);
   const [column, setColumn] = useState(-1);
@@ -48,8 +50,10 @@ export function MyContext(props: providerProps) {
   const [active, setActive] = useState(false);
   const [namechannel,setnamechannel] = useState('piano')
   const [channel,setchannel] = useState('🎹')
+  const [showVolume, setshowVolume] = useState(1);
   useEffect(() => {
-    getChannel({setError,setGridState,setUrls,addColumn,namechannel})
+      getChannel({setError,setGridState,setUrls,addColumn,namechannel})
+      logoChannel({namechannel,setchannel})
   }, [namechannel]);
 
   const [gridState, setGridState] = useState<boolean[][]>(
@@ -61,7 +65,7 @@ export function MyContext(props: providerProps) {
   useEffect(() => {
     setGridState((prev) => {
       if (prev.length < addColumn) {
-        return [...prev, Array.from({ length: 7 }, () => true)];
+        return [...prev, Array.from({ length: urls.length }, () => true)];
       }
       if (prev.length > addColumn) {
         return prev.slice(0, addColumn);
@@ -91,7 +95,9 @@ export function MyContext(props: providerProps) {
         namechannel,
         setnamechannel,
         channel,
-        setchannel
+        setchannel,
+        showVolume,
+        setshowVolume
       }}
     >
       {props.children}

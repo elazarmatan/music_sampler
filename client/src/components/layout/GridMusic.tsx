@@ -1,6 +1,7 @@
 import { useMyContext } from "../../context/MyContext.context";
 import setColorAfter from "../../utils/setColorAfter";
 import AudioSquare from "../AudioSquare";
+import '../../style/gridmusic.css'
 
 function GridMusic() {
   const { addColumn, gridState, setGridState,urls,error} = useMyContext();
@@ -15,6 +16,7 @@ function GridMusic() {
       {urls.length > 1 ? gridState.map((col, collIndex) =>
         col.map((cellState, rowIndex) => (
           <AudioSquare
+            row={rowIndex}
             key={`${collIndex}-${rowIndex}`}
             pathAudio={urls[rowIndex]}
             active={cellState}

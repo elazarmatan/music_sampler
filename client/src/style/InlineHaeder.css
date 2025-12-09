@@ -1,0 +1,18 @@
+.inlineHead{
+  display: flex;
+  justify-content: space-around;
+  background:linear-gradient(rgb(240,248,255),#F5F8FA 0%, #EBF4FA 80%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  height: 20vh;
+  z-index: 1000;
+  align-items: center;
+  width: 100%;
+}
+img{
+  height: 19vh;
+  width: 10vw;
+  border-radius: 50%;
+}

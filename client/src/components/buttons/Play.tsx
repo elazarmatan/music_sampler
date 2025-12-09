@@ -3,9 +3,10 @@ import { useMyContext } from "../../context/MyContext.context";
 import playSpecificColumn from "../../utils/playColumn";
 
 function Play() {
-  const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive} = useMyContext();
+  const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive,addColumn} = useMyContext();
 
   const play = () => {setActive(true); isPlaying.current = true;
+    if(column > addColumn - 1) setColumn(addColumn - 1)
     if(column < gridState.length - 1){
       setColumn(prev => prev + 1)
     } 
@@ -20,9 +21,9 @@ function Play() {
   return (
     <div>
       {!active ? (
-        <button className="Play" onClick={play}>▶</button>
+        <button className="Play button" onClick={play}>▶</button>
       ) : (
-        <button className="Play"onClick={pause}>⏹</button>
+        <button className="Play button"onClick={pause}>⏹</button>
       )}
     </div>
   );

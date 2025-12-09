@@ -1,0 +1,21 @@
+#grid{
+  display: grid;
+  grid-auto-flow: column;
+  height: 57vh;
+  width: 98%;
+  gap: 0.5% 0.2%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.square{ 
+  border: 1px solid black;
+  display: flex;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-width: 10vh;
+}
+.square:hover{
+ opacity: 0.5; 
+}

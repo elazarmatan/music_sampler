@@ -1,19 +1,14 @@
-import GridMusic from "./components/layout/GridMusic"
-import Logo from "./components/layout/Logo"
-import NavBar from "./components/layout/NavBar"
-import { MyContext } from "./context/MyContext.context"
-
+import { BrowserRouter, Route, Routes } from "react-router"
+import HomePage from "./pages/HomePage"
+import MusicSaves from "./pages/MusicSaves"
 function App() {
   return (
-    <MyContext>
-      <div className="page">
-      <header>
-        <Logo/>
-      </header>
-      <GridMusic/>
-      <NavBar/>
-    </div>
-    </MyContext>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/music" element={<MusicSaves/>}/>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,18 +1,23 @@
 import express from 'express'
-import { getSignedUrlsFromFolder } from '../db/connectToS3.js'
+import { downloadFiles, getSignedUrlsFromFolder, listFiles } from '../db/connectToS3.js'
 
-const router = express.Router()
+const getRouter = express.Router()
 
 
 
-router.get('/channel/:channame',async(req,res) => {
+getRouter.get('/channel/:channame',async(req,res) => {
   try {
     const urls = await getSignedUrlsFromFolder(req.params.channame)
     await new Promise(resolve => (setTimeout(resolve,2000)))
-    res.json({"piano":urls})
+    res.json({"music":urls})
   } catch (error) {
     res.status(500).json({"msg":error})
   }
 })
 
-export default router
+getRouter.get('/musicsaves',async(req,res) => {
+  const allMusic = await downloadFiles('createMusic')
+  res.json(allMusic)
+})
+
+export default getRouter
