@@ -1,47 +1,47 @@
-# Music Sequencer
+# סיקוונסר מוזיקה
 
-A web-based music sequencer application that allows users to create, play, and save musical patterns using different instrument channels.
+אפליקציית סיקוונסר מוזיקה מבוססת אינטרנט המאפשרת למשתמשים ליצור, להשמיע ולשמור תבניות מוזיקליות באמצעות ערוצי כלי נגינה שונים.
 
-## Features
+## תכונות
 
-- **Multiple Instrument Channels**: Switch between Piano (🎹), Guitar (🎸), and Darbuka (🪘)
-- **Visual Grid Sequencer**: Interactive grid interface for creating musical patterns
-- **Playback Controls**: Play, pause, stop, and control playback speed
-- **Dynamic Columns**: Add or remove columns (up to 100) for longer sequences
-- **Volume Control**: Adjustable volume with real-time feedback
-- **Save & Load**: Save your musical creations and load them later
-- **Cloud Storage**: All music patterns and audio files stored in AWS S3
-- **Local Caching**: Instrument channels cached locally for 1 hour to improve performance
+- **ערוצי כלי נגינה מרובים**: מעבר בין פסנתר (🎹), גיטרה (🎸) ודרבוקה (🪘)
+- **סיקוונסר גריד ויזואלי**: ממשק גריד אינטראקטיבי ליצירת תבניות מוזיקליות
+- **בקרות השמעה**: הפעלה, השהיה, עצירה ושליטה במהירות ההשמעה
+- **עמודות דינמיות**: הוספה או הסרה של עמודות (עד 100) לרצפים ארוכים יותר
+- **בקרת עוצמת קול**: עוצמת קול הניתנת להתאמה עם משוב בזמן אמת
+- **שמירה וטעינה**: שמירת היצירות המוזיקליות שלך וטעינה שלהן מאוחר יותר
+- **אחסון בענן**: כל התבניות המוזיקליות וקבצי האודיו נשמרים ב-AWS S3
+- **שמירה במטמון מקומי**: ערוצי כלי הנגינה נשמרים במטמון מקומי למשך שעה לשיפור ביצועים
 
-## Tech Stack
+## סטאק טכנולוגי
 
 ### Frontend
-- **React 18** with TypeScript
-- **React Router** for navigation
-- **Tone.js** for audio playback and synthesis
-- **Vite** as build tool
-- Context API for state management
+- **React 18** עם TypeScript
+- **React Router** לניווט
+- **Tone.js** להשמעת אודיו וסינתזה
+- **Vite** ככלי בנייה
+- Context API לניהול מצב
 
 ### Backend
 - **Express.js** (v5.1.0)
-- **AWS SDK v3** for S3 integration
-- **CORS** enabled for cross-origin requests
-- **dotenv** for environment configuration
+- **AWS SDK v3** לאינטגרציה עם S3
+- **CORS** מופעל לבקשות cross-origin
+- **dotenv** לתצורת סביבה
 
-### Storage
-- **AWS S3** for audio file storage and user-created patterns
-- Pre-signed URLs for secure audio access (1-hour expiration)
-- LocalStorage for client-side caching
+### אחסון
+- **AWS S3** לאחסון קבצי אודיו ותבניות שנוצרו על ידי משתמשים
+- URLs חתומים מראש לגישה מאובטחת לאודיו (תפוגה של שעה)
+- LocalStorage לשמירה במטמון בצד הלקוח
 
-## Project Structure
+## מבנה הפרויקט
 
 ```
 ├── client/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── AudioSquare.tsx       # Individual grid cell component
-│   │   │   ├── Music.tsx             # Saved music item display
-│   │   │   ├── buttons/              # Control buttons
+│   │   │   ├── AudioSquare.tsx       # קומפוננטת תא בודד בגריד
+│   │   │   ├── Music.tsx             # תצוגת פריט מוזיקה שמור
+│   │   │   ├── buttons/              # כפתורי בקרה
 │   │   │   │   ├── AddColumn.tsx
 │   │   │   │   ├── Channels.tsx
 │   │   │   │   ├── ControlSpeed.tsx
@@ -51,17 +51,17 @@ A web-based music sequencer application that allows users to create, play, and s
 │   │   │   │   ├── Stop.tsx
 │   │   │   │   └── Volume.tsx
 │   │   │   └── layout/
-│   │   │       ├── GridMusic.tsx     # Main sequencer grid
+│   │   │       ├── GridMusic.tsx     # גריד הסיקוונסר הראשי
 │   │   │       ├── InlineHeader.tsx
 │   │   │       └── NavBar.tsx
 │   │   ├── context/
-│   │   │   └── MyContext.context.tsx # Global state management
+│   │   │   └── MyContext.context.tsx # ניהול מצב גלובלי
 │   │   ├── pages/
 │   │   │   ├── HomePage.tsx
 │   │   │   └── MusicSaves.tsx
 │   │   ├── utils/
 │   │   │   ├── getAllMusicSaved.ts
-│   │   │   ├── getChanFromLocal.ts   # LocalStorage helpers
+│   │   │   ├── getChanFromLocal.ts   # עוזרי LocalStorage
 │   │   │   ├── getChannelFromServer.ts
 │   │   │   ├── parseFileKey.ts
 │   │   │   ├── playColumn.ts
@@ -69,50 +69,50 @@ A web-based music sequencer application that allows users to create, play, and s
 │   │   │   ├── setColorAfter.ts
 │   │   │   └── handles/
 │   │   │       └── channels.ts
-│   │   └── style/                     # CSS files
+│   │   └── style/                     # קבצי CSS
 │   └── App.tsx
 │
 └── server/
     ├── db/
-    │   └── connectToS3.js            # AWS S3 integration
+    │   └── connectToS3.js            # אינטגרציה עם AWS S3
     ├── routes/
-    │   ├── get.js                    # GET endpoints
-    │   └── post.js                   # POST endpoints
-    └── index.js                      # Server entry point
+    │   ├── get.js                    # נקודות קצה GET
+    │   └── post.js                   # נקודות קצה POST
+    └── index.js                      # נקודת כניסה לשרת
 ```
 
-## API Endpoints
+## נקודות קצה API
 
-### GET Routes
+### מסלולי GET
 
 #### `/music/channel/:channame`
-Fetches audio files for a specific instrument channel from S3.
-- **Parameters**: `channame` (piano, guitar, or darbuka)
-- **Returns**: JSON with pre-signed URLs for audio files
-- **Caching**: Results cached in browser localStorage for 1 hour
+מביא קבצי אודיו לערוץ כלי נגינה ספציפי מ-S3.
+- **פרמטרים**: `channame` (piano, guitar, או darbuka)
+- **מחזיר**: JSON עם URLs חתומים מראש לקבצי אודיו
+- **שמירה במטמון**: התוצאות נשמרות במטמון ב-localStorage למשך שעה
 
 #### `/music/musicsaves`
-Retrieves all saved music patterns.
-- **Returns**: Array of saved music objects with grid state and metadata
+מחזיר את כל התבניות המוזיקליות השמורות.
+- **מחזיר**: מערך של אובייקטי מוזיקה שמורים עם מצב הגריד ומטה-דאטה
 
-### POST Routes
+### מסלולי POST
 
 #### `/create/saveState/:nameFile`
-Saves a music pattern to S3.
-- **Parameters**: `nameFile` - Name for the saved pattern
-- **Body**: JSON containing `channel` and `matrix` (grid state)
-- **Returns**: Success message
+שומר תבנית מוזיקלית ל-S3.
+- **פרמטרים**: `nameFile` - שם לתבנית השמורה
+- **Body**: JSON המכיל `channel` ו-`matrix` (מצב הגריד)
+- **מחזיר**: הודעת הצלחה
 
-## Setup Instructions
+## הוראות התקנה
 
-### Prerequisites
-- Node.js (v18 or higher)
-- AWS Account with S3 bucket configured
-- AWS credentials with S3 read/write permissions
+### דרישות מוקדמות
+- Node.js (גרסה 18 ומעלה)
+- חשבון AWS עם bucket S3 מוגדר
+- אישורי AWS עם הרשאות קריאה/כתיבה ל-S3
 
-### Environment Variables
+### משתני סביבה
 
-Create a `.env` file in the `server/` directory:
+צור קובץ `.env` בתיקייה `server/`:
 
 ```env
 PORT=3005
@@ -121,120 +121,120 @@ AceesKeyId=your_aws_access_key
 SecretKey=your_aws_secret_key
 ```
 
-### Installation
+### התקנה
 
-1. **Install server dependencies:**
+1. **התקן תלויות השרת:**
 ```bash
 cd server
 npm install
 ```
 
-2. **Install client dependencies:**
+2. **התקן תלויות הלקוח:**
 ```bash
 cd client
 npm install
 ```
 
-### Running the Application
+### הפעלת האפליקציה
 
-1. **Start the backend server:**
+1. **הפעל את שרת ה-backend:**
 ```bash
 cd server
 npm run dev
 ```
-Server runs on `http://localhost:3005`
+השרת רץ על `http://localhost:3005`
 
-2. **Start the frontend development server:**
+2. **הפעל את שרת הפיתוח של ה-frontend:**
 ```bash
 cd client
 npm run dev
 ```
-Client typically runs on `http://localhost:5173`
+הלקוח בדרך כלל רץ על `http://localhost:5173`
 
-## How to Use
+## כיצד להשתמש
 
-1. **Select an Instrument**: Click the channel button (🎹/🎸/🪘) to switch between instruments
-2. **Create Pattern**: Click grid cells to toggle notes on/off (white = active, gradient = inactive)
-3. **Adjust Grid**: Use +/- buttons to add or remove columns
-4. **Control Playback**:
-   - ▶ to play
-   - ⏸ to pause
-   - ⏹ to stop and reset
-   - Adjust speed with the slider (x0.5 to x5)
-5. **Save Pattern**: Click "Save", enter a name, and submit
-6. **Load Pattern**: Navigate to "MUSIC SAVE" to see and load saved patterns
+1. **בחר כלי נגינה**: לחץ על כפתור הערוץ (🎹/🎸/🪘) כדי לעבור בין כלי הנגינה
+2. **צור תבנית**: לחץ על תאי הגריד כדי להפעיל/לכבות צלילים (לבן = פעיל, גרדיאנט = לא פעיל)
+3. **התאם את הגריד**: השתמש בכפתורים +/- כדי להוסיף או להסיר עמודות
+4. **שלוט בהשמעה**:
+   - ▶ כדי להשמיע
+   - ⏸ כדי להשהות
+   - ⏹ כדי לעצור ולאפס
+   - התאם את המהירות עם המחוון (x0.5 עד x5)
+5. **שמור תבנית**: לחץ על "Save", הזן שם, ושלח
+6. **טען תבנית**: נווט אל "MUSIC SAVE" כדי לראות ולטעון תבניות שמורות
 
-## Key Features Explained
+## תכונות מרכזיות - הסבר
 
-### Grid System
-- Each column represents a time step in the sequence
-- Each row represents a different note/sound in the instrument
-- The bottom row (🥁) is specially highlighted
-- Active column during playback shows reduced opacity
+### מערכת הגריד
+- כל עמודה מייצגת צעד זמן ברצף
+- כל שורה מייצגת צליל/סאונד שונה בכלי הנגינה
+- השורה התחתונה (🥁) מודגשת במיוחד
+- העמודה הפעילה במהלך ההשמעה מוצגת עם אטימות מופחתת
 
-### Playback System
-- Uses Tone.js for audio synthesis and playback
-- Loops continuously when playing
-- Supports speed adjustment from 0.5x to 5x
-- Volume control affects all audio output
+### מערכת ההשמעה
+- משתמשת ב-Tone.js לסינתזה והשמעת אודיו
+- לולאה רצופה כאשר משמיעים
+- תומכת בהתאמת מהירות מ-0.5x עד 5x
+- בקרת העוצמה משפיעה על כל פלט האודיו
 
-### State Management
-- React Context API manages global state
-- Includes: grid state, playback controls, selected instrument, volume, etc.
-- State persists during navigation between pages
+### ניהול מצב
+- React Context API מנהל את המצב הגלובלי
+- כולל: מצב הגריד, בקרות השמעה, כלי נגינה נבחר, עוצמת קול וכו'
+- המצב נשמר במהלך הניווט בין דפים
 
-### Caching Strategy
-- Instrument audio URLs cached in localStorage for 1 hour
-- Reduces server requests and improves load times
-- Cache automatically invalidated after expiration
+### אסטרטגיית שמירה במטמון
+- URLs של אודיו של כלי נגינה נשמרים במטמון ב-localStorage למשך שעה
+- מפחית בקשות שרת ומשפר זמני טעינה
+- המטמון מתבטל אוטומטית לאחר תפוגה
 
-## S3 Bucket Structure
+## מבנה ה-Bucket של S3
 
 ```
 music/
-├── piano/               # Piano audio files
-├── guitar/              # Guitar audio files
-├── darbuka/             # Darbuka audio files
-└── createMusic/         # User-saved patterns
+├── piano/               # קבצי אודיו של פסנתר
+├── guitar/              # קבצי אודיו של גיטרה
+├── darbuka/             # קבצי אודיו של דרבוקה
+└── createMusic/         # תבניות שנשמרו על ידי משתמשים
     └── [filename][timestamp].json
 ```
 
-## Performance Optimizations
+## אופטימיזציות ביצועים
 
-- LocalStorage caching for instrument channels (1-hour TTL)
-- Pre-signed URLs with 1-hour expiration
-- Lazy loading of saved music patterns
-- Debounced audio playback
-- Efficient grid state updates using functional setState
+- שמירה במטמון של LocalStorage לערוצי כלי נגינה (TTL של שעה)
+- URLs חתומים מראש עם תפוגה של שעה
+- טעינה עצלנית של תבניות מוזיקה שמורות
+- השמעת אודיו עם debounce
+- עדכוני מצב גריד יעילים באמצעות setState פונקציונלי
 
-## Browser Compatibility
+## תאימות דפדפנים
 
-- Modern browsers with Web Audio API support
-- Chrome, Firefox, Safari, Edge (latest versions)
-- Mobile browsers supported
+- דפדפנים מודרניים עם תמיכה ב-Web Audio API
+- Chrome, Firefox, Safari, Edge (גרסאות אחרונות)
+- דפדפני מובייל נתמכים
 
-## Known Limitations
+## מגבלות ידועות
 
-- Maximum 100 columns per sequence
-- Minimum 10 columns per sequence
-- Audio files must be hosted on S3
-- Requires stable internet connection for audio streaming
+- מקסימום 100 עמודות לכל רצף
+- מינימום 10 עמודות לכל רצף
+- קבצי אודיו חייבים להיות מאוחסנים ב-S3
+- דורש חיבור אינטרנט יציב להזרמת אודיו
 
-## Future Enhancements
+## שיפורים עתידיים
 
-- [ ] Add more instrument channels
-- [ ] Support custom audio file uploads
-- [ ] Export patterns as MIDI or audio files
-- [ ] Collaborative editing features
-- [ ] Mobile-optimized UI
-- [ ] Pattern sharing via links
-- [ ] Tempo/BPM indicator
-- [ ] Undo/Redo functionality
+- [ ] הוספת ערוצי כלי נגינה נוספים
+- [ ] תמיכה בהעלאת קבצי אודיו מותאמים אישית
+- [ ] ייצוא תבניות כקבצי MIDI או אודיו
+- [ ] תכונות עריכה שיתופיות
+- [ ] ממשק מותאם למובייל
+- [ ] שיתוף תבניות באמצעות קישורים
+- [ ] אינדיקטור טמפו/BPM
+- [ ] פונקציונליות ביטול/שחזור
 
-## License
+## רישיון
 
 ISC
 
-## Authors
+## יוצרים
 
-Created with React, Express, and Tone.js
+נוצר עם React, Express ו-Tone.js
