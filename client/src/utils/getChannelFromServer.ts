@@ -25,10 +25,8 @@ export default async function getChannel({setError,setGridState,setUrls,addColum
           localStorage.setItem(namechannel+"time",JSON.stringify(Date.now()))
           setUrls(finishdata.music);
           setGridState((prev) => {
-            const newRows = addColumn; 
-            const newCols = finishdata.music.length; 
-            return Array.from({ length: newRows }, (_, rowIndex) => {
-            return Array.from({ length: newCols }, (_, colIndex) => {
+            return Array.from({ length: addColumn }, (_, rowIndex) => {
+            return Array.from({ length: finishdata.music.length }, (_, colIndex) => {
             return prev[rowIndex]?.[colIndex] ?? true;
                 });
               });
@@ -44,10 +42,8 @@ export default async function getChannel({setError,setGridState,setUrls,addColum
     else{
       setUrls(local)
       setGridState((prev) => {
-            const newCols = addColumn; 
-            const newRows = local.length; 
-            return Array.from({ length: newCols }, (_, rowIndex) => {
-            return Array.from({ length: newRows }, (_, colIndex) => {
+            return Array.from({ length: addColumn }, (_, rowIndex) => {
+            return Array.from({ length: local.length }, (_, colIndex) => {
             return prev[rowIndex]?.[colIndex] ?? true;
                 });
               });
