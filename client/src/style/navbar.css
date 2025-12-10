@@ -30,17 +30,12 @@
   color: white;
   font-size: xx-large;
 }
-.Play:hover{
-    transform: scale(1.1);
-}
+
 .add{
   width: 3.5vh;
   height: 2vw;
   color: white;
   border-radius: 50%;
-}
-.add:hover{
-    transform: scale(1.1);
 }
 .playColumn{
   opacity: 0.5;
@@ -56,17 +51,11 @@
   color: white;
   font-size: x-large;
 }
-.stop:hover{
-    transform: scale(1.1);
-}
 .channel{
   width: 4vw;
   height: 8vh;
   border-radius: 50%;
   font-size: x-large;
-}
-.channel:hover{
-    transform: scale(1.1);
 }
 #minmax{
   display: flex;
@@ -78,9 +67,6 @@
   height: 8vh;
   width: 4vw;
 }
-.restart:hover{
-    transform: scale(1.1);
-}
 .button{
   background-color: #007AFF;
   display: flex;
@@ -88,6 +74,9 @@
   justify-content: center;
   color: white;
   cursor: pointer;
+}
+.button:hover{
+    transform: scale(1.1);
 }
 .inputRange{
     -webkit-appearance: none;
