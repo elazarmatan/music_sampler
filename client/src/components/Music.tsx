@@ -14,7 +14,7 @@ function Music({name,grid,channel}:props) {
     const homenav = useNavigate()
     const fullName = parseFileKey(name)
   return (
-    <div className="music" key={name}>
+    <div className="music">
         <h2>{fullName.fileName}</h2>
         <p>created at: {fullName.createdAt}</p>
         <p>channel: {channel}</p>
