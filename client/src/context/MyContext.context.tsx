@@ -51,17 +51,18 @@ export function MyContext(props: providerProps) {
   const [namechannel,setnamechannel] = useState('piano')
   const [channel,setchannel] = useState('🎹')
   const [showVolume, setshowVolume] = useState(1);
-  useEffect(() => {
-      getChannel({setError,setGridState,setUrls,addColumn,namechannel})
-      logoChannel({namechannel,setchannel})
-  }, [namechannel]);
-
   const [gridState, setGridState] = useState<boolean[][]>(
     Array.from({ length: addColumn }, () =>
       Array.from({ length: urls.length }, () => true)
     )
   );
 
+  useEffect(() => {
+      getChannel({setError,setGridState,setUrls,addColumn,namechannel})
+      logoChannel({namechannel,setchannel})
+  }, [namechannel]);
+
+  
   useEffect(() => {
     setGridState((prev) => {
       if (prev.length < addColumn) {
@@ -73,6 +74,8 @@ export function MyContext(props: providerProps) {
       return prev;
     });
   }, [addColumn]);
+
+  
   return (
     <context.Provider
       value={{
