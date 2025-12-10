@@ -1,17 +1,12 @@
 import { useEffect } from "react";
 import { useMyContext } from "../../context/MyContext.context";
 import playSpecificColumn from "../../utils/playColumn";
+import { pause, play } from "../../utils/handles/play";
 
 function Play() {
   const { urls, gridState, isPlaying , controllSpeed,column,setColumn,gain,active,setActive,addColumn} = useMyContext();
 
-  const play = () => {setActive(true); isPlaying.current = true;
-    if(column > addColumn - 1) setColumn(addColumn - 1)
-    if(column < gridState.length - 1){
-      setColumn(prev => prev + 1)
-    } 
-  }
-  const pause = () => {isPlaying.current = false;setActive(false);setColumn(-1)}
+  
 
   useEffect(() => {
       if (!isPlaying.current) return
@@ -21,9 +16,9 @@ function Play() {
   return (
     <div>
       {!active ? (
-        <button className="Play button" onClick={play}>▶</button>
+        <button className="Play button" onClick={() => play({setActive,isPlaying,column,addColumn,setColumn,gridState})}>▶</button>
       ) : (
-        <button className="Play button"onClick={pause}>⏹</button>
+        <button className="Play button"onClick={() => pause({isPlaying,setActive,setColumn})}>⏹</button>
       )}
     </div>
   );

@@ -1,13 +1,8 @@
+import type { paramsgetChannel } from "../interfaces/params";
 import getChannellocal from "./getChanFromLocal";
 
-interface params{
-    setUrls: React.Dispatch<React.SetStateAction<string[]>>
-    setGridState: React.Dispatch<React.SetStateAction<boolean[][]>>;
-    setError:React.Dispatch<React.SetStateAction<boolean>>
-    addColumn: number;
-    namechannel:string
-}
-export default async function getChannel({setError,setGridState,setUrls,addColumn,namechannel}:params){
+
+export default async function getChannel({setError,setGridState,setUrls,addColumn,namechannel}:paramsgetChannel){
   const time = getChannellocal(namechannel+"time")
   const now = Date.now()
   const oneHour = 3600 * 1000;

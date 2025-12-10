@@ -1,13 +1,5 @@
-interface paramsChannels{
-    namechannel:string
-    setnamechannel:React.Dispatch<React.SetStateAction<string>>
-    setUrls:React.Dispatch<React.SetStateAction<string[]>>
-}
+import type { paramsChannels, paramslogo } from "../../interfaces/params";
 
-interface paramslogo{
-    namechannel:string
-    setchannel:React.Dispatch<React.SetStateAction<string>>
-}
 
 export function logoChannel({namechannel,setchannel}:paramslogo){
     switch (namechannel) {

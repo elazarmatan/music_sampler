@@ -2,14 +2,10 @@ import { useNavigate } from "react-router"
 import { useMyContext } from "../context/MyContext.context"
 import parseFileKey from "../utils/parseFileKey"
 import '../style/musicsaved.css'
+import type { propsmusic } from "../interfaces/props"
 
-interface props{
-    name:string
-    grid:boolean[][]
-    channel:string
-}
 
-function Music({name,grid,channel}:props) {
+function Music({name,grid,channel}:propsmusic) {
     const {setGridState,setnamechannel,setAddcolumn} = useMyContext()
     const homenav = useNavigate()
     const fullName = parseFileKey(name)
