@@ -1,16 +1,9 @@
 import * as Tone from 'tone'
 import { useMyContext } from '../context/MyContext.context.tsx'
+import type { propsAudio } from '../interfaces/props.ts'
 
-interface props{
-    pathAudio:string
-    active:boolean
-    onToggle:() => void
-    colorAfter:string
-    mycolumn:number
-    row:number
-}
 
-function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn,row}:props) {
+function AudioSquare({pathAudio , active , onToggle ,colorAfter ,mycolumn,row}:propsAudio) {
   const {column,gain,urls} = useMyContext()
   const play = async() => {
         await Tone.start()

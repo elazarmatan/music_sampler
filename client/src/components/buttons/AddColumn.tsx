@@ -1,17 +1,14 @@
 import { useMyContext } from "../../context/MyContext.context"
+import { add, remove } from "../../utils/handles/addColumn"
 function AddColumn() {
     const {addColumn,setAddcolumn ,column,setColumn} = useMyContext()
 
-  const add = () => {if(addColumn < 100){setAddcolumn(prev => prev + 1)}}
-  const remove = () => {{if(addColumn > 10){
-    if(column > addColumn) setColumn(addColumn - 1)
-    setAddcolumn(prev => prev - 1)}}}
 
   return (
     <div id="AddColumn">
-      <button className="add button" onClick={add}>+</button>
+      <button className="add button" onClick={() => add({addColumn,setAddcolumn})}>+</button>
       <p>column</p>
-      <button className="add button" onClick={remove}>-</button>
+      <button className="add button" onClick={() => remove({addColumn,setAddcolumn,setColumn,column})}>-</button>
     </div>
     
   )

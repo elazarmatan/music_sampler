@@ -1,15 +1,7 @@
 import * as Tone from "tone";
+import type { paramsPlayColumn } from "../interfaces/params";
 
-interface params {
-  gridState: boolean[][];
-  column: number;
-  urls: string[];
-  setColumn: React.Dispatch<React.SetStateAction<number>>;
-  controllSpeed:number
-  gain:React.RefObject<Tone.Gain<"gain">>
-    isPlaying: React.RefObject<boolean>;
-  
-}
+
 
 export default async function playSpecificColumn({
   gridState,
@@ -19,7 +11,7 @@ export default async function playSpecificColumn({
   controllSpeed,
   gain,
   isPlaying
-}: params) {
+}: paramsPlayColumn) {
   if(!gridState[column].length) return
   for (let row = 0; row < gridState[column].length; row ++) {
     if(!isPlaying.current) break

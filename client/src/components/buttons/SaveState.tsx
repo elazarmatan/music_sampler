@@ -16,6 +16,8 @@ function SaveState() {
         return () => clearTimeout(wait)
     }
   },[accesSave])
+
+
     if(accesSave === "succes"){
         return <p id="success"  className="divsave">succes!</p>
     }
@@ -25,6 +27,8 @@ function SaveState() {
     else if(accesSave === 'failed'){
         return <p  className="divsave" id="failedsave">failed to save</p>
     }
+
+    
   return (
     <div className="divsave">
     {wantSave ? 
@@ -35,15 +39,11 @@ function SaveState() {
                     await saveState(nameFile.current.value,gridState,setAccesSave,namechannel)
                 }
             }}>submit</button>
-            <button className="button" onClick={() => {
-                setWAntSAve(false)
-            }}>cancel</button>
+            <button className="button" onClick={() => {setWAntSAve(false)}}>cancel</button>
         </div>:
+
         <button className="button save"
-        onClick={() => {
-        setWAntSAve(true)
-        }}
-        >Save</button>
+        onClick={() => {setWAntSAve(true)}}>Save</button>
     }
     </div>
   )

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useMyContext } from "../../context/MyContext.context";
 
 function Volume() {
