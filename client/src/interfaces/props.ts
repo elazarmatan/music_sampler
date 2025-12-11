@@ -39,3 +39,7 @@ export type contextType = {
   showVolume:number
   setshowVolume:React.Dispatch<React.SetStateAction<number>>;
 };
+
+export interface allMusicProps{
+    musics:[] | [{data:{channel:string,matrix:boolean[][]},key:{Key:string}}]
+}

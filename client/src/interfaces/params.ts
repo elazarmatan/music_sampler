@@ -66,3 +66,10 @@ export interface paramsPlayColumn {
     isPlaying: React.RefObject<boolean>;
   
 }
+
+export interface saveParams{
+    nameFile:React.RefObject<HTMLInputElement | null>
+    gridState: boolean[][]
+    setAccesSave: React.Dispatch<React.SetStateAction<"pending" | "succes" | "failed" | "not">>
+    namechannel: string
+}
