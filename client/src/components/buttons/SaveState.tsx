@@ -8,7 +8,7 @@ function SaveState() {
     const nameFile = useRef<HTMLInputElement>(null)
     const [accesSave,setAccesSave] = useState<'pending' | 'succes' | 'failed' | 'not'>('not')
     useEffect(() => {
-    if(accesSave === "succes" || accesSave === 'failed'){
+    if(accesSave === "succes" || accesSave === 'failed'){    
         const wait = setTimeout(() => {
             setAccesSave('not')
             setWAntSAve(false)
