@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useMyContext } from "../../context/MyContext.context"
-import saveState from "../../utils/saveState"
+import { save } from "../../utils/handles/saveState"
 
 function SaveState() {
     const {gridState,namechannel} = useMyContext()
@@ -14,8 +14,8 @@ function SaveState() {
             setWAntSAve(false)
         },2000)
         return () => clearTimeout(wait)
-    }
-  },[accesSave])
+        }
+    },[accesSave])
 
 
     if(accesSave === "succes"){
@@ -34,11 +34,7 @@ function SaveState() {
     {wantSave ? 
         <div className="wantsave">
             <input type="text" placeholder="name to file" ref={nameFile} className="inputwantsave" required/>
-            <button className="button" onClick={async() => {
-                if(nameFile.current?.value){
-                    await saveState(nameFile.current.value,gridState,setAccesSave,namechannel)
-                }
-            }}>submit</button>
+            <button className="button" onClick={() => save({nameFile,gridState,setAccesSave,namechannel})}>submit</button>
             <button className="button" onClick={() => {setWAntSAve(false)}}>cancel</button>
         </div>:
 
